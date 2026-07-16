@@ -48,3 +48,49 @@ body {
 .animate-fade-in {
   animation: fade-in 0.7s ease-out both;
 }
+
+@keyframes blade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-35deg);
+    transform-origin: 0 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transform-origin: 0 0;
+  }
+}
+
+.loader-blade {
+  transform-origin: 0 0;
+  animation-name: blade-in;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loader-wordmark {
+  animation: word-in 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-blade,
+  .loader-wordmark {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+}

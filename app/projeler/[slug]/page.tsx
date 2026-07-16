@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BuildingArt from "@/components/BuildingArt";
 import ProjectCard from "@/components/ProjectCard";
+import { FaWhatsapp } from "react-icons/fa";
 import { getProjectBySlug, projects } from "@/lib/projects";
 import { whatsappLink } from "@/lib/site";
 
@@ -113,16 +114,17 @@ export default async function ProjectDetailPage({
               href={whatsappLink(`Merhaba, ${project.title} hakkında bilgi almak istiyorum.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex w-full items-center justify-center rounded-full bg-neutral-950 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
+              className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A]"
             >
+              <FaWhatsapp size={18} />
               WhatsApp ile Yazın
             </a>
-            <a
-              href="#iletisim"
+            <Link
+              href="/iletisim"
               className="mt-3 flex w-full items-center justify-center rounded-full border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:border-neutral-950"
             >
               İletişim Bilgileri
-            </a>
+            </Link>
           </div>
         </aside>
       </section>

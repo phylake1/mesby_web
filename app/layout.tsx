@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialSidebar from "@/components/SocialSidebar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-neutral-900">
+        <Loader />
         <Navbar />
         <SocialSidebar />
         <main className="flex-1">{children}</main>

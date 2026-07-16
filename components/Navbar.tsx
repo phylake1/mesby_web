@@ -37,10 +37,10 @@ export default function Navbar() {
       <div className="container-page flex items-center justify-between py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src={solid ? "/logo/lockup-black.png" : "/logo/lockup-white.png"}
+            src={solid ? "/logo/navbar-logo-black.png" : "/logo/navbar-logo-white.png"}
             alt="Mesby İnşaat"
-            width={823}
-            height={200}
+            width={409}
+            height={66}
             className="h-8 w-auto sm:h-9"
             priority
           />
@@ -64,8 +64,8 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="#iletisim"
+          <Link
+            href="/iletisim"
             className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
               solid
                 ? "bg-neutral-950 text-white hover:bg-neutral-800"
@@ -73,7 +73,7 @@ export default function Navbar() {
             }`}
           >
             İletişim
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -116,13 +116,13 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="#iletisim"
+          <Link
+            href="/iletisim"
             onClick={() => setOpen(false)}
             className="mt-4 rounded-full bg-neutral-950 px-5 py-2.5 text-center text-sm font-semibold text-white"
           >
             İletişim
-          </a>
+          </Link>
         </nav>
       )}
     </header>

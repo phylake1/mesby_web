@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 import HeroSlider from "@/components/HeroSlider";
 import SectionHeader from "@/components/SectionHeader";
 import StatsStrip from "@/components/StatsStrip";
@@ -123,16 +124,17 @@ export default function Home() {
               href={whatsappLink("Merhaba, Mesby İnşaat projeleri hakkında bilgi almak istiyorum.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:bg-neutral-200"
+              className="flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A]"
             >
+              <FaWhatsapp size={18} />
               WhatsApp ile Yazın
             </a>
-            <a
-              href="#iletisim"
+            <Link
+              href="/iletisim"
               className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               İletişim Bilgileri
-            </a>
+            </Link>
           </div>
         </div>
       </section>

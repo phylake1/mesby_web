@@ -16,18 +16,19 @@ const QUICK_LINKS = [
   { href: "/projeler", label: "Projelerimiz" },
   { href: "/ilanlar", label: "Satılık Daireler" },
   { href: "/hakkimizda", label: "Hakkımızda" },
+  { href: "/iletisim", label: "İletişim" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="iletisim" className="bg-neutral-950 text-neutral-300">
+    <footer className="bg-neutral-950 text-neutral-300">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-4">
         <div className="lg:col-span-2">
           <Image
-            src="/logo/wordmark-white.png"
+            src="/logo/navbar-wordmark-white.png"
             alt="Mesby İnşaat"
-            width={180}
-            height={45}
+            width={337}
+            height={66}
             className="h-8 w-auto"
           />
           <p className="mt-5 max-w-md text-sm leading-relaxed text-neutral-400">
@@ -110,7 +111,7 @@ export default function Footer() {
               </a>
             </li>
             <li className="flex items-start gap-3">
-              <FaWhatsapp className="mt-0.5 shrink-0" size={14} />
+              <FaWhatsapp className="mt-0.5 shrink-0 text-[#25D366]" size={14} />
               <a
                 href={whatsappLink("Merhaba, bilgi almak istiyorum.")}
                 target="_blank"
