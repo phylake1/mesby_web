@@ -19,7 +19,13 @@ export const projects: Project[] = [
       "Akıllı ev altyapısı",
       "Deprem yönetmeliğine uygun yapı",
     ],
-    art: 1,
+    images: [
+      "mesby-panorama-konutlari-1",
+      "mesby-panorama-konutlari-2",
+      "mesby-panorama-konutlari-3",
+      "mesby-panorama-konutlari-4",
+      "mesby-panorama-konutlari-5",
+    ],
   },
   {
     slug: "mesby-vadi-evleri",
@@ -38,7 +44,12 @@ export const projects: Project[] = [
       "Site içi yürüyüş parkuru",
       "Isı yalıtımlı dış cephe",
     ],
-    art: 2,
+    images: [
+      "mesby-vadi-evleri-1",
+      "mesby-vadi-evleri-2",
+      "mesby-vadi-evleri-3",
+      "mesby-vadi-evleri-4",
+    ],
   },
   {
     slug: "mesby-loft-rezidans",
@@ -57,7 +68,14 @@ export const projects: Project[] = [
       "Çok amaçlı toplantı salonu",
       "Teras katta ortak kullanım alanı",
     ],
-    art: 3,
+    images: [
+      "mesby-loft-rezidans-1",
+      "mesby-loft-rezidans-2",
+      "mesby-loft-rezidans-3",
+      "mesby-loft-rezidans-4",
+      "mesby-loft-rezidans-5",
+      "mesby-loft-rezidans-6",
+    ],
   },
   {
     slug: "mesby-bahce-konaklari",
@@ -76,7 +94,12 @@ export const projects: Project[] = [
       "Kapalı garaj",
       "Jeneratör desteği",
     ],
-    art: 4,
+    images: [
+      "mesby-bahce-konaklari-1",
+      "mesby-bahce-konaklari-2",
+      "mesby-bahce-konaklari-3",
+      "mesby-bahce-konaklari-4",
+    ],
   },
 ];
 

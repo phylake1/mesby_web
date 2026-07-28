@@ -16,7 +16,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       <div className="relative h-56 overflow-hidden">
         <BuildingArt
-          art={project.art}
+          art={project.images[0]}
           className="h-full w-full transition-transform duration-500 group-hover:scale-105"
         />
         <span

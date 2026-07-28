@@ -10,7 +10,8 @@ export type Project = {
   summary: string;
   description: string;
   features: string[];
-  art: number;
+  // Placeholder image keys today; will become Cloudinary public_ids.
+  images: string[];
 };
 
 export type Listing = {
@@ -26,5 +27,8 @@ export type Listing = {
   city: string;
   isNew: boolean;
   publishedAt: string;
-  art: number;
+  description: string;
+  features: string[];
+  // Placeholder image keys today; will become Cloudinary public_ids.
+  images: string[];
 };

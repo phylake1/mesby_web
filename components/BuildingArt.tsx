@@ -18,15 +18,28 @@ function seededBars(seed: number, count: number) {
   return bars;
 }
 
+// Cloudinary migration note: `art` also accepts a string key (e.g. a future
+// Cloudinary public_id) which is hashed to a stable numeric seed here. Once
+// real photos are wired up, swap this component's output for a Cloudinary
+// <Image> using that same key, without touching callers.
+function hashToSeed(key: string) {
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = (hash * 31 + key.charCodeAt(i)) % 233280;
+  }
+  return Math.abs(hash);
+}
+
 export default function BuildingArt({
   art,
   className = "",
 }: {
-  art: number;
+  art: number | string;
   className?: string;
 }) {
-  const gradient = GRADIENTS[art % GRADIENTS.length];
-  const bars = seededBars(art, 12);
+  const seed = typeof art === "string" ? hashToSeed(art) : art;
+  const gradient = GRADIENTS[seed % GRADIENTS.length];
+  const bars = seededBars(seed, 12);
   const width = 400;
   const height = 260;
   const barWidth = width / bars.length;

@@ -1,7 +1,9 @@
 import { Listing } from "./types";
 
 // Demo veriler. Sahibinden.com API entegrasyonu bağlandığında bu liste
-// gerçek ilan verisiyle (fiyat, m2, oda sayısı, ilan linki vb.) değiştirilecek.
+// gerçek ilan verisiyle (fiyat, m2, oda sayısı, ilan linki, görseller vb.)
+// değiştirilecek. `images` alanındaki anahtarlar ileride Cloudinary
+// public_id'lerine dönüşecek.
 export const listings: Listing[] = [
   {
     id: "mesby-1001",
@@ -16,7 +18,23 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: true,
     publishedAt: "2026-07-02",
-    art: 1,
+    description:
+      "Mesby Panorama Konutları içerisinde, şehir manzaralı, güneye cepheli ve ferah bir 3+1 daire. Geniş balkonu ve kaliteli iç mekan işçiliğiyle oturuma hazır durumdadır.",
+    features: [
+      "Kapalı otopark",
+      "Kombi (doğalgaz)",
+      "Krediye uygun",
+      "Eşyalı değil",
+      "Güvenlik (7/24)",
+      "Isı yalıtımlı",
+    ],
+    images: [
+      "mesby-1001-1",
+      "mesby-1001-2",
+      "mesby-1001-3",
+      "mesby-1001-4",
+      "mesby-1001-5",
+    ],
   },
   {
     id: "mesby-1002",
@@ -31,7 +49,16 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: false,
     publishedAt: "2026-06-21",
-    art: 2,
+    description:
+      "Kadıköy'ün merkezi bir noktasında, deniz manzaralı, toplu taşımaya ve sosyal alanlara yürüme mesafesinde 2+1 daire. Bakımlı bina ve düzenli yönetimiyle dikkat çekiyor.",
+    features: [
+      "Deniz manzarası",
+      "Asansörlü bina",
+      "Kombi (doğalgaz)",
+      "Krediye uygun",
+      "Otopark (açık)",
+    ],
+    images: ["mesby-1002-1", "mesby-1002-2", "mesby-1002-3", "mesby-1002-4"],
   },
   {
     id: "mesby-1003",
@@ -46,7 +73,23 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: false,
     publishedAt: "2026-06-14",
-    art: 3,
+    description:
+      "Mesby Bahçe Konakları'nda özel bahçe kullanımına sahip, geniş metrekareli 4+1 daire. Aile yaşamına uygun sessiz ve güvenli bir site içerisinde yer almaktadır.",
+    features: [
+      "Özel bahçe kullanımı",
+      "Kapalı garaj",
+      "Site içi güvenlik",
+      "Krediye uygun",
+      "Eşyalı değil",
+      "Jeneratör",
+    ],
+    images: [
+      "mesby-1003-1",
+      "mesby-1003-2",
+      "mesby-1003-3",
+      "mesby-1003-4",
+      "mesby-1003-5",
+    ],
   },
   {
     id: "mesby-1004",
@@ -61,7 +104,15 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: false,
     publishedAt: "2026-05-30",
-    art: 4,
+    description:
+      "Üsküdar'da toplu taşımaya yakın, yatırım amaçlı değerlendirilebilecek kompakt 1+1 daire. Kiracısı olmayan, boş teslim edilecek durumdadır.",
+    features: [
+      "Boş teslim",
+      "Kombi (doğalgaz)",
+      "Yatırıma uygun",
+      "Krediye uygun",
+    ],
+    images: ["mesby-1004-1", "mesby-1004-2", "mesby-1004-3"],
   },
   {
     id: "mesby-1005",
@@ -76,7 +127,22 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: true,
     publishedAt: "2026-07-06",
-    art: 5,
+    description:
+      "Mesby Vadi Evleri'nde doğayla iç içe, dubleks kullanıma sahip sıfır 3+1 daire. Site içi sosyal olanaklardan faydalanma imkanı sunar.",
+    features: [
+      "Dubleks kullanım",
+      "Site içi yürüyüş parkuru",
+      "Kapalı yüzme havuzu",
+      "Krediye uygun",
+      "Isı yalıtımlı",
+    ],
+    images: [
+      "mesby-1005-1",
+      "mesby-1005-2",
+      "mesby-1005-3",
+      "mesby-1005-4",
+      "mesby-1005-5",
+    ],
   },
   {
     id: "mesby-1006",
@@ -91,8 +157,28 @@ export const listings: Listing[] = [
     city: "İstanbul",
     isNew: true,
     publishedAt: "2026-07-08",
-    art: 6,
+    description:
+      "Maltepe sahiline kısa yürüme mesafesinde, geniş metrekareli ve yüksek katta konumlanan sıfır 5+1 daire. Rezidans konforu ve deniz manzarası bir arada.",
+    features: [
+      "Deniz manzarası",
+      "Rezidans concierge",
+      "Kapalı otopark ve şarj istasyonu",
+      "Krediye uygun",
+      "Akıllı ev altyapısı",
+    ],
+    images: [
+      "mesby-1006-1",
+      "mesby-1006-2",
+      "mesby-1006-3",
+      "mesby-1006-4",
+      "mesby-1006-5",
+      "mesby-1006-6",
+    ],
   },
 ];
+
+export function getListingById(id: string) {
+  return listings.find((listing) => listing.id === id);
+}
 
 export const SAHIBINDEN_STORE_URL = "https://www.sahibinden.com/";
