@@ -20,7 +20,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
   if (!project) return {};
   return {
-    title: `${project.title} | Mesby İnşaat`,
+    title: `${project.title} | Mesby Yapı`,
     description: project.summary,
   };
 }
@@ -54,7 +54,7 @@ export default async function ProjectDetailPage({
       </section>
 
       <section className="container-page grid gap-12 py-10 lg:grid-cols-3 lg:pb-20">
-        <div className="lg:col-span-2">
+        <div className="min-w-0 lg:col-span-2">
           <Gallery images={project.images} alt={project.title} />
 
           <div className="mt-10 flex flex-wrap gap-6 border-b border-neutral-200 pb-8 text-sm">

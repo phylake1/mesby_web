@@ -4,9 +4,9 @@ import SectionHeader from "@/components/SectionHeader";
 import StatsStrip from "@/components/StatsStrip";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda | Mesby İnşaat",
+  title: "Hakkımızda | Mesby Yapı",
   description:
-    "Mesby İnşaat'ın hikayesi, misyonu, vizyonu ve değerleri hakkında bilgi edinin.",
+    "Mesby Yapı'nın hikayesi, misyonu, vizyonu ve değerleri hakkında bilgi edinin.",
 };
 
 const VALUES = [
@@ -29,7 +29,7 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-  { year: "2010", text: "Mesby İnşaat, İstanbul'da kuruldu." },
+  { year: "2010", text: "Mesby Yapı, İstanbul'da kuruldu." },
   { year: "2015", text: "İlk konut projemizi tamamladık ve teslim ettik." },
   { year: "2019", text: "Portföyümüzü genişleterek rezidans projelerine başladık." },
   { year: "2023", text: "Mesby Vadi Evleri projesini başarıyla teslim ettik." },
@@ -44,7 +44,7 @@ export default function HakkimizdaPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
-            Mesby İnşaat
+            Mesby Yapı
           </span>
           <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Hakkımızda
@@ -60,7 +60,7 @@ export default function HakkimizdaPage() {
               title="Zamansız Mimari, Sağlam Mühendislik"
             />
             <p className="mt-5 text-neutral-600">
-              Mesby İnşaat, İstanbul&apos;da konut ve gayrimenkul geliştirme
+              Mesby Yapı, İstanbul&apos;da konut ve gayrimenkul geliştirme
               alanında faaliyet gösteren bir inşaat firmasıdır. Kuruluşumuzdan
               bu yana; müşterilerimize güvenli, konforlu ve estetik yaşam
               alanları sunmayı ilke edindik.

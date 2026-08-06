@@ -33,7 +33,7 @@ export default function Home() {
               Sağlam Mühendislik, Zamansız Mimari
             </h2>
             <p className="mt-5 text-neutral-500">
-              Mesby İnşaat olarak İstanbul&apos;un farklı bölgelerinde,
+              Mesby Yapı olarak İstanbul&apos;un farklı bölgelerinde,
               yaşam kalitesini önceleyen konut projeleri geliştiriyoruz.
               Her projede güvenlik, kalite ve estetiği bir araya getirerek
               müşterilerimize uzun ömürlü değer sunmayı hedefliyoruz.
@@ -121,7 +121,7 @@ export default function Home() {
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={whatsappLink("Merhaba, Mesby İnşaat projeleri hakkında bilgi almak istiyorum.")}
+              href={whatsappLink("Merhaba, Mesby Yapı projeleri hakkında bilgi almak istiyorum.")}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A]"

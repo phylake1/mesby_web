@@ -181,4 +181,4 @@ export function getListingById(id: string) {
   return listings.find((listing) => listing.id === id);
 }
 
-export const SAHIBINDEN_STORE_URL = "https://www.sahibinden.com/";
+export const SAHIBINDEN_STORE_URL = "https://mesbygayrimenkul.sahibinden.com/";

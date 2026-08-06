@@ -9,6 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
+  --font-stapel: var(--font-stapel);
 }
 
 body {
@@ -49,46 +50,22 @@ body {
   animation: fade-in 0.7s ease-out both;
 }
 
-@keyframes blade-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.2) rotate(-35deg);
-    transform-origin: 0 0;
-  }
-  65% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-    transform-origin: 0 0;
-  }
-}
-
-.loader-blade {
-  transform-origin: 0 0;
-  animation-name: blade-in;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  animation-fill-mode: both;
-}
-
 @keyframes word-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(6px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .loader-wordmark {
-  animation: word-in 500ms ease-out both;
+  animation: word-in 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loader-blade,
   .loader-wordmark {
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;

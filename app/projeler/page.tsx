@@ -4,9 +4,9 @@ import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Projelerimiz | Mesby İnşaat",
+  title: "Projelerimiz | Mesby Yapı",
   description:
-    "Mesby İnşaat'ın İstanbul'daki tamamlanan, devam eden ve yakında satışa çıkacak konut projeleri.",
+    "Mesby Yapı'nın İstanbul'daki tamamlanan, devam eden ve yakında satışa çıkacak konut projeleri.",
 };
 
 export default function ProjelerPage() {
@@ -17,7 +17,7 @@ export default function ProjelerPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
-            Mesby İnşaat
+            Mesby Yapı
           </span>
           <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Projelerimiz

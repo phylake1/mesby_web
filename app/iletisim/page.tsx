@@ -16,9 +16,9 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "İletişim | Mesby İnşaat",
+  title: "İletişim | Mesby Yapı",
   description:
-    "Mesby İnşaat ile telefon, e-posta veya WhatsApp üzerinden iletişime geçin, ofisimizin konumunu haritada görüntüleyin.",
+    "Mesby Yapı ile telefon, e-posta veya WhatsApp üzerinden iletişime geçin, ofisimizin konumunu haritada görüntüleyin.",
 };
 
 const CONTACT_CARDS = [
@@ -40,7 +40,7 @@ const CONTACT_CARDS = [
     icon: FaWhatsapp,
     title: "WhatsApp",
     value: "Hemen yazın",
-    href: whatsappLink("Merhaba, Mesby İnşaat ile iletişime geçmek istiyorum."),
+    href: whatsappLink("Merhaba, Mesby Yapı ile iletişime geçmek istiyorum."),
     iconClassName: "bg-[#25D366]",
   },
   {
@@ -60,7 +60,7 @@ export default function IletisimPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
-            Mesby İnşaat
+            Mesby Yapı
           </span>
           <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             İletişim
@@ -146,7 +146,7 @@ export default function IletisimPage() {
             </ul>
 
             <a
-              href={whatsappLink("Merhaba, Mesby İnşaat ile iletişime geçmek istiyorum.")}
+              href={whatsappLink("Merhaba, Mesby Yapı ile iletişime geçmek istiyorum.")}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A] sm:w-auto"
@@ -158,7 +158,7 @@ export default function IletisimPage() {
 
           <div className="overflow-hidden rounded-2xl border border-neutral-200 lg:col-span-3">
             <iframe
-              title="Mesby İnşaat Ofis Konumu"
+              title="Mesby Yapı Ofis Konumu"
               src={mapsEmbedUrl(SITE.mapsQuery)}
               className="h-80 w-full lg:h-full lg:min-h-[420px]"
               loading="lazy"

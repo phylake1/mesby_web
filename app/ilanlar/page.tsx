@@ -4,9 +4,9 @@ import ListingsExplorer from "@/components/ListingsExplorer";
 import { listings, SAHIBINDEN_STORE_URL } from "@/lib/listings";
 
 export const metadata: Metadata = {
-  title: "Satılık Daireler | Mesby İnşaat",
+  title: "Satılık Daireler | Mesby Yapı",
   description:
-    "Mesby İnşaat'ın sahibinden.com üzerinde yayınladığı güncel satılık daire ilanları.",
+    "Mesby Yapı'nın sahibinden.com üzerinde yayınladığı güncel satılık daire ilanları.",
 };
 
 export default function IlanlarPage() {
@@ -17,7 +17,7 @@ export default function IlanlarPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
-            Mesby İnşaat
+            Mesby Yapı
           </span>
           <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Satılık Daireler

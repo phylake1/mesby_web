@@ -21,7 +21,7 @@ export async function generateMetadata({
   const listing = getListingById(id);
   if (!listing) return {};
   return {
-    title: `${listing.title} | Mesby İnşaat`,
+    title: `${listing.title} | Mesby Yapı`,
     description: listing.description,
   };
 }
@@ -64,7 +64,7 @@ export default async function ListingDetailPage({
       </section>
 
       <section className="container-page grid gap-12 py-10 lg:grid-cols-3 lg:pb-20">
-        <div className="lg:col-span-2">
+        <div className="min-w-0 lg:col-span-2">
           <Gallery images={listing.images} alt={listing.title} />
 
           <div className="mt-10 grid grid-cols-2 gap-6 border-b border-neutral-200 pb-8 text-sm sm:grid-cols-4">

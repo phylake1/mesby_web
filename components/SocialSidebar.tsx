@@ -1,16 +1,9 @@
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { SITE } from "@/lib/site";
 
 const LINKS = [
   { href: SITE.social.instagram, label: "Instagram", icon: FaInstagram },
   { href: SITE.social.facebook, label: "Facebook", icon: FaFacebookF },
-  { href: SITE.social.linkedin, label: "LinkedIn", icon: FaLinkedinIn },
-  { href: SITE.social.youtube, label: "YouTube", icon: FaYoutube },
 ];
 
 export default function SocialSidebar() {

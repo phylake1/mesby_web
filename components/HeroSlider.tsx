@@ -7,7 +7,7 @@ import BuildingArt from "./BuildingArt";
 const SLIDES = [
   {
     art: 1,
-    kicker: "Mesby İnşaat",
+    kicker: "Mesby Yapı",
     title: "Değer Yaratan Konut Projeleri",
     text: "İstanbul'un gözde bölgelerinde, sağlam mühendislik ve zamansız mimari anlayışıyla hayat bulan projeler.",
     ctaHref: "/projeler",

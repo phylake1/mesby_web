@@ -1,10 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
   FaWhatsapp,
   FaEnvelope,
   FaMapMarkerAlt,
@@ -24,15 +21,12 @@ export default function Footer() {
     <footer className="bg-neutral-950 text-neutral-300">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-4">
         <div className="lg:col-span-2">
-          <Image
-            src="/logo/navbar-wordmark-white.png"
-            alt="Mesby İnşaat"
-            width={337}
-            height={66}
-            className="h-8 w-auto"
-          />
+          <span className="font-stapel text-2xl tracking-wide text-white">
+            <span className="font-medium">MESBY </span>
+            <span className="font-light">YAPI</span>
+          </span>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-neutral-400">
-            Mesby İnşaat; İstanbul&apos;da güvenilir mühendislik ve zamansız
+            Mesby Yapı; İstanbul&apos;da güvenilir mühendislik ve zamansız
             mimari anlayışıyla konut projeleri geliştirir. Sahibinden.com
             üzerindeki güncel ilanlarımıza bu sitemizden de kolayca
             ulaşabilirsiniz.
@@ -41,8 +35,6 @@ export default function Footer() {
             {[
               { href: SITE.social.instagram, icon: FaInstagram, label: "Instagram" },
               { href: SITE.social.facebook, icon: FaFacebookF, label: "Facebook" },
-              { href: SITE.social.linkedin, icon: FaLinkedinIn, label: "LinkedIn" },
-              { href: SITE.social.youtube, icon: FaYoutube, label: "YouTube" },
             ].map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
@@ -126,7 +118,7 @@ export default function Footer() {
       </div>
 
       <div className="container-page flex flex-col items-center justify-between gap-3 border-t border-neutral-800 py-6 text-xs text-neutral-500 sm:flex-row">
-        <p>© {new Date().getFullYear()} Mesby İnşaat. Tüm hakları saklıdır.</p>
+        <p>© {new Date().getFullYear()} Mesby Yapı. Tüm hakları saklıdır.</p>
         <p>Gayrimenkul ve inşaat projeleri.</p>
       </div>
     </footer>

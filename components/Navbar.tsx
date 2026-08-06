@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -52,14 +51,14 @@ export default function Navbar() {
       >
         <div className="container-page flex items-center justify-between py-4">
           <Link href="/" className="flex items-center">
-            <Image
-              src={solid ? "/logo/navbar-logo-black.png" : "/logo/navbar-logo-white.png"}
-              alt="Mesby İnşaat"
-              width={409}
-              height={66}
-              className="h-8 w-auto sm:h-9"
-              priority
-            />
+            <span
+              className={`font-stapel text-2xl tracking-wide sm:text-3xl ${
+                solid ? "text-neutral-950" : "text-white"
+              }`}
+            >
+              <span className="font-medium">MESBY </span>
+              <span className="font-light">YAPI</span>
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -128,13 +127,10 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4">
-          <Image
-            src="/logo/navbar-logo-black.png"
-            alt="Mesby İnşaat"
-            width={409}
-            height={66}
-            className="h-7 w-auto"
-          />
+          <span className="font-stapel text-xl tracking-wide text-neutral-950">
+            <span className="font-medium">MESBY </span>
+            <span className="font-light">YAPI</span>
+          </span>
           <button
             type="button"
             aria-label="Menüyü kapat"

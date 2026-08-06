@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function WhatsAppButton() {
   return (
     <a
-      href={whatsappLink("Merhaba, Mesby İnşaat projeleri hakkında bilgi almak istiyorum.")}
+      href={whatsappLink("Merhaba, Mesby Yapı projeleri hakkında bilgi almak istiyorum.")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp üzerinden bize ulaşın"
