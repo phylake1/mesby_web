@@ -6,14 +6,16 @@ import StatsStrip from "@/components/StatsStrip";
 import ProjectCard from "@/components/ProjectCard";
 import ListingCard from "@/components/ListingCard";
 import BuildingArt from "@/components/BuildingArt";
-import { projects } from "@/lib/projects";
+import { fetchProjects } from "@/lib/api";
 import { listings } from "@/lib/listings";
 import { whatsappLink } from "@/lib/site";
 
-export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-  const featuredListings = listings.slice(0, 3);
+export const revalidate = 60;
 
+export default async function Home() {
+  const featuredProjects = (await fetchProjects()).slice(0, 3);
+  const featuredListings = listings.slice(0, 3);
+  
   return (
     <>
       <HeroSlider />
@@ -33,10 +35,10 @@ export default function Home() {
               Sağlam Mühendislik, Zamansız Mimari
             </h2>
             <p className="mt-5 text-neutral-500">
-              Mesby Yapı olarak İstanbul&apos;un farklı bölgelerinde,
-              yaşam kalitesini önceleyen konut projeleri geliştiriyoruz.
-              Her projede güvenlik, kalite ve estetiği bir araya getirerek
-              müşterilerimize uzun ömürlü değer sunmayı hedefliyoruz.
+              Mesby Yapı olarak İstanbul&apos;un farklı bölgelerinde, yaşam
+              kalitesini önceleyen konut projeleri geliştiriyoruz. Her projede
+              güvenlik, kalite ve estetiği bir araya getirerek müşterilerimize
+              uzun ömürlü değer sunmayı hedefliyoruz.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-neutral-600">
               <li className="flex items-center gap-3">
@@ -121,7 +123,9 @@ export default function Home() {
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={whatsappLink("Merhaba, Mesby Yapı projeleri hakkında bilgi almak istiyorum.")}
+              href={whatsappLink(
+                "Merhaba, Mesby Yapı projeleri hakkında bilgi almak istiyorum.",
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A]"

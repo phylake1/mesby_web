@@ -33,10 +33,21 @@ function hashToSeed(key: string) {
 export default function BuildingArt({
   art,
   className = "",
+  alt = "",
 }: {
   art: number | string;
   className?: string;
+  alt?: string;
 }) {
+  if (typeof art === "string" && /^https?:\/\//.test(art)) {
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={art} alt={alt} className="h-full w-full object-cover" />
+      </div>
+    );
+  }
+
   const seed = typeof art === "string" ? hashToSeed(art) : art;
   const gradient = GRADIENTS[seed % GRADIENTS.length];
   const bars = seededBars(seed, 12);

@@ -34,7 +34,7 @@ export default function Gallery({
   return (
     <div>
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-        <BuildingArt art={images[index]} className="h-full w-full" />
+        <BuildingArt art={images[index]} className="h-full w-full" alt={alt} />
 
         {total > 1 && (
           <>

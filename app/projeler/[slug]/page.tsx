@@ -4,12 +4,10 @@ import { notFound } from "next/navigation";
 import Gallery from "@/components/Gallery";
 import ProjectCard from "@/components/ProjectCard";
 import { FaWhatsapp } from "react-icons/fa";
-import { getProjectBySlug, projects } from "@/lib/projects";
+import { fetchProjectById, fetchProjects } from "@/lib/api";
 import { whatsappLink } from "@/lib/site";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
@@ -17,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await fetchProjectById(slug);
   if (!project) return {};
   return {
     title: `${project.title} | Mesby Yapı`,
@@ -31,11 +29,11 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await fetchProjectById(slug);
   if (!project) notFound();
 
-  const otherProjects = projects.filter((p) => p.slug !== slug).slice(0, 3);
-
+  const allProjects = await fetchProjects();
+  const otherProjects = allProjects.filter((p) => p.slug !== slug).slice(0, 3);
   return (
     <>
       <section className="border-b border-neutral-100 bg-neutral-50 pt-24 pb-8">
@@ -111,7 +109,9 @@ export default async function ProjectDetailPage({
               seçeneklerini sunalım.
             </p>
             <a
-              href={whatsappLink(`Merhaba, ${project.title} hakkında bilgi almak istiyorum.`)}
+              href={whatsappLink(
+                `Merhaba, ${project.title} hakkında bilgi almak istiyorum.`,
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A]"
