@@ -24,7 +24,7 @@ export const ABOUT_IMAGE =
 // üzerinde "about-banner_g0kklo" görselinin odak noktası (gravity) ayarlanıp
 // bu satır güncellenmelidir.
 export const SITE_OG_IMAGE =
-    "../public/og_image.png";
+    "/og_image.png";
 // Hero slider videoları (şimdilik 2 slide).
 export const HERO_MEDIA = {
     slide1:
