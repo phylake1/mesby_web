@@ -17,9 +17,12 @@ import {
 import { SITE_BANNER } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "İletişim | Mesby Yapı",
+  title: "İstanbul Ofisimize Ulaşın, Bize Yazın",
   description:
-    "Mesby Yapı ile telefon, e-posta veya WhatsApp üzerinden iletişime geçin, ofisimizin konumunu haritada görüntüleyin.",
+    "Mesby Yapı İstanbul ofisiyle telefon, e-posta veya WhatsApp üzerinden iletişime geçin; konut projelerimiz ve satılık daire ilanlarımız hakkında bilgi alın.",
+  alternates: {
+    canonical: "/iletisim",
+  },
 };
 
 const CONTACT_CARDS = [
@@ -60,6 +63,7 @@ export default function IletisimPage() {
         <BuildingArt
           art={SITE_BANNER}
           className="absolute inset-0 h-full w-full opacity-70"
+          alt="Mesby Yapı İstanbul ofisi ile iletişime geçin"
         />{" "}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">

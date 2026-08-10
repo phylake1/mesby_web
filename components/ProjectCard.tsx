@@ -18,6 +18,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <BuildingArt
           art={project.images[0]}
           className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+          alt={`${project.title} - ${project.location} konut projesi`}
         />
         <span
           className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold ${STATUS_STYLES[project.status]}`}

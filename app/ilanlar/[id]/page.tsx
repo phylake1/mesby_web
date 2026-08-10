@@ -20,9 +20,21 @@ export async function generateMetadata({
   const { id } = await params;
   const listing = getListingById(id);
   if (!listing) return {};
+  const description =
+    listing.description.length > 160
+      ? `${listing.description.slice(0, 157)}…`
+      : listing.description;
   return {
-    title: `${listing.title} | Mesby Yapı`,
-    description: listing.description,
+    title: `${listing.title} - ${listing.district}, ${listing.city}`,
+    description,
+    alternates: {
+      canonical: `/ilanlar/${listing.id}`,
+    },
+    openGraph: {
+      title: listing.title,
+      description,
+      url: `/ilanlar/${listing.id}`,
+    },
   };
 }
 

@@ -75,7 +75,11 @@ export default function Gallery({
                   : "opacity-60 hover:opacity-100"
               }`}
             >
-              <BuildingArt art={image} className="h-full w-full" />
+              <BuildingArt
+                art={image}
+                className="h-full w-full"
+                alt={`${alt} - görsel ${i + 1}`}
+              />
             </button>
           ))}
         </div>

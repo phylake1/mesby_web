@@ -9,11 +9,23 @@ export const revalidate = 60;
 
 const PAGE_SIZE = 12;
 
-export const metadata: Metadata = {
-  title: "Projelerimiz | Mesby Yapı",
-  description:
-    "Mesby Yapı'nın İstanbul'daki tamamlanan, devam eden ve yakında satışa çıkacak konut projeleri.",
-};
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}): Promise<Metadata> {
+  const { page } = await searchParams;
+  const canonical = page && page !== "1" ? `/projeler?page=${page}` : "/projeler";
+
+  return {
+    title: "İstanbul İnşaat ve Konut Projelerimiz",
+    description:
+      "Mesby Yapı'nın İstanbul'daki tamamlanan, devam eden ve yakında satışa çıkacak konut projelerini inceleyin; inşaat kalitesiyle projelerimizi keşfedin.",
+    alternates: {
+      canonical,
+    },
+  };
+}
 
 export default async function ProjelerPage({
   searchParams,
@@ -35,6 +47,7 @@ export default async function ProjelerPage({
         <BuildingArt
           art={SITE_BANNER}
           className="absolute inset-0 h-full w-full opacity-70"
+          alt="Mesby Yapı İstanbul konut projeleri"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
@@ -52,6 +65,9 @@ export default async function ProjelerPage({
       </section>
 
       <section className="container-page py-16 lg:py-20">
+        <h2 className="text-2xl font-bold text-neutral-950">
+          Tüm Konut Projelerimiz
+        </h2>
         {pageProjects.length === 0 ? (
           <p className="text-center text-neutral-500">
             Şu anda listelenecek bir proje bulunmuyor.

@@ -6,9 +6,9 @@ export default function ListingsComingSoon() {
       <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#FFDD00] text-2xl font-black text-neutral-950">
         S
       </span>
-      <h3 className="mt-6 text-xl font-bold text-neutral-950 sm:text-2xl">
+      <h2 className="mt-6 text-xl font-bold text-neutral-950 sm:text-2xl">
         İlanlarımız Çok Yakında Burada
-      </h3>
+      </h2>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-500">
         Sahibinden.com üzerindeki satılık daire ilanlarımız, API entegrasyonu
         tamamlandığında doğrudan bu sayfada da gösterilecektir. O zamana kadar

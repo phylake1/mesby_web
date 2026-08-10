@@ -4,9 +4,12 @@ import ListingsComingSoon from "@/components/ListingsComingSoon";
 import { SITE_BANNER } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "Satılık Daireler | Mesby Yapı",
+  title: "İstanbul'da Satılık Daire ve Konut İlanları",
   description:
-    "Mesby Yapı'nın sahibinden.com üzerinde yayınladığı güncel satılık daire ilanları.",
+    "Mesby Yapı'nın İstanbul'daki konut projelerinden satılık daire ilanlarını inceleyin; sahibinden.com mağazamızdaki güncel ilanlara ulaşabilirsiniz.",
+  alternates: {
+    canonical: "/ilanlar",
+  },
 };
 
 export default function IlanlarPage() {
@@ -16,6 +19,7 @@ export default function IlanlarPage() {
         <BuildingArt
           art={SITE_BANNER}
           className="absolute inset-0 h-full w-full opacity-70"
+          alt="Mesby Yapı İstanbul satılık daire ilanları"
         />{" "}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">

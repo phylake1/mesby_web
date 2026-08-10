@@ -79,7 +79,11 @@ export default function HeroSlider() {
       ))}
 
       <div className="container-page relative z-10 flex h-full flex-col items-start justify-center">
-        {SLIDES.map((slide, i) => (
+        {SLIDES.map((slide, i) => {
+          // Sayfada tek bir <h1> olması için sadece ilk slayt h1, diğerleri
+          // (görsel olarak aynı boyutta kalması gereken) h2 olarak render edilir.
+          const Heading = i === 0 ? "h1" : "h2";
+          return (
           <div
             key={slide.title}
             className={`max-w-2xl transition-all duration-700 ${
@@ -89,9 +93,9 @@ export default function HeroSlider() {
             <span className="inline-block rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white/90">
               {slide.kicker}
             </span>
-            <h1 className="mt-6 text-balance text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <Heading className="mt-6 text-balance text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               {slide.title}
-            </h1>
+            </Heading>
             <p className="mt-5 max-w-lg text-base text-white/80 sm:text-lg">
               {slide.text}
             </p>
@@ -110,7 +114,8 @@ export default function HeroSlider() {
               </Link>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="absolute inset-x-0 bottom-8 z-10 flex items-center justify-center gap-6">

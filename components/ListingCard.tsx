@@ -12,6 +12,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           <BuildingArt
             art={listing.images[0]}
             className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+            alt={`${listing.title} - ${listing.district}, ${listing.city} satılık daire`}
           />
           {listing.isNew && (
             <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-semibold text-neutral-950">

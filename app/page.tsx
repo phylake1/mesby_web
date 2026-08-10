@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import HeroSlider from "@/components/HeroSlider";
@@ -12,6 +13,15 @@ import { ABOUT_IMAGE } from "@/lib/media";
 
 export const revalidate = 60;
 
+export const metadata: Metadata = {
+  title: "Mesby Yapı | İstanbul'da Güvenilir İnşaat ve Konut Projeleri",
+  description:
+    "Mesby Yapı, İstanbul'un farklı ilçelerinde güvenilir mühendislikle konut projeleri geliştiren bir inşaat firmasıdır. Projelerimizi keşfedin.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default async function Home() {
   const featuredProjects = (await fetchProjects()).slice(0, 3);
 
@@ -24,7 +34,11 @@ export default async function Home() {
       <section className="container-page py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-[420px]">
-            <BuildingArt art={ABOUT_IMAGE} className="h-full w-full" />{" "}
+            <BuildingArt
+              art={ABOUT_IMAGE}
+              className="h-full w-full"
+              alt="Mesby Yapı İstanbul inşaat sahası ve mühendislik ekibi"
+            />{" "}
           </div>
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">

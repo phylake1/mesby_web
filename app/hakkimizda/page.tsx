@@ -3,11 +3,40 @@ import BuildingArt from "@/components/BuildingArt";
 import SectionHeader from "@/components/SectionHeader";
 import StatsStrip from "@/components/StatsStrip";
 import { SITE_BANNER, ABOUT_IMAGE } from "@/lib/media";
+import { SITE, SITE_NAME, canonicalUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda | Mesby Yapı",
+  title: "İstanbul İnşaat Firmamızın Hikayesi ve Değerleri",
   description:
-    "Mesby Yapı'nın hikayesi, misyonu, vizyonu ve değerleri hakkında bilgi edinin.",
+    "Mesby Yapı, İstanbul'da 2010'dan bu yana güvenilir mühendislik ve zamansız mimariyle konut projeleri geliştiren bir inşaat firmasıdır. Hikayemizi keşfedin.",
+  alternates: {
+    canonical: "/hakkimizda",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  name: SITE_NAME,
+  url: canonicalUrl("/hakkimizda"),
+  image: SITE_BANNER,
+  telephone: SITE.phoneDisplay,
+  email: SITE.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.address,
+    addressLocality: SITE.district,
+    addressRegion: SITE.city,
+    postalCode: "34100",
+    addressCountry: "TR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: SITE.geo.latitude,
+    longitude: SITE.geo.longitude,
+  },
+  areaServed: "İstanbul",
+  openingHours: "Mo-Sa 09:00-18:00",
 };
 
 const VALUES = [
@@ -43,10 +72,16 @@ const TIMELINE = [
 export default function HakkimizdaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+
       <section className="relative flex h-72 items-center overflow-hidden bg-neutral-950 pt-16">
         <BuildingArt
           art={SITE_BANNER}
           className="absolute inset-0 h-full w-full opacity-70"
+          alt="Mesby Yapı İstanbul inşaat firması ofisi"
         />{" "}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
@@ -67,20 +102,73 @@ export default function HakkimizdaPage() {
               title="Zamansız Mimari, Sağlam Mühendislik"
             />
             <p className="mt-5 text-neutral-600">
-              Mesby Yapı, İstanbul&apos;da konut ve gayrimenkul geliştirme
-              alanında faaliyet gösteren bir inşaat firmasıdır. Kuruluşumuzdan
-              bu yana; müşterilerimize güvenli, konforlu ve estetik yaşam
-              alanları sunmayı ilke edindik.
+              Mesby Yapı, 2010 yılından bu yana İstanbul&apos;da konut ve
+              gayrimenkul geliştirme alanında faaliyet gösteren bir inşaat
+              firmasıdır. Kuruluşumuzdan bu yana; Kadıköy, Ataşehir, Üsküdar,
+              Maltepe, Çekmeköy ve Sancaktepe gibi şehrin farklı ilçelerinde,
+              müşterilerimize güvenli, konforlu ve estetik yaşam alanları
+              sunmayı ilke edindik.
             </p>
             <p className="mt-4 text-neutral-600">
               Her projemizde mühendislik standartlarından ödün vermeden,
-              bölgenin ihtiyaçlarına uygun, yaşam kalitesini artıran tasarımlar
-              geliştiriyoruz. Satış sürecinden teslimat sonrasına kadar
-              müşterilerimizin yanında olmaya devam ediyoruz.
+              bölgenin ihtiyaçlarına uygun, deprem yönetmeliğine tam uyumlu ve
+              yaşam kalitesini artıran tasarımlar geliştiriyoruz. Arsa
+              değerlendirmesinden proje tasarımına, statik hesaplardan iç
+              mekan işçiliğine kadar tüm süreçleri kendi bünyemizde yöneterek
+              hem kaliteden hem de teslim tarihlerinden ödün vermiyoruz.
+            </p>
+            <p className="mt-4 text-neutral-600">
+              Satış sürecinden teslimat sonrasına kadar müşterilerimizin
+              yanında olmaya devam ediyoruz. Satış ofisimiz, daire seçiminden
+              kredi ve tapu işlemlerine kadar her adımda alıcılarımıza
+              rehberlik eder; teslimat sonrasında da garanti kapsamındaki
+              talepleri hızla çözüme kavuşturarak uzun soluklu bir güven
+              ilişkisi kurarız.
+            </p>
+            <p className="mt-4 text-neutral-600">
+              Bugün İstanbul genelinde tamamladığımız konut projeleri ve devam
+              eden şantiyelerimizle büyümeye devam ediyoruz. Mesby Yapı
+              ailesi olarak hedefimiz, sadece bina inşa etmek değil;
+              sakinlerine değer katan, sürdürülebilir ve zamanın ötesinde
+              kalan yaşam alanları üretmektir. Bu vizyonla İstanbul&apos;un
+              inşaat sektöründe güvenilir bir marka olmayı sürdürüyoruz.
+            </p>
+            <p className="mt-4 text-neutral-600">
+              Enerji verimliliği yüksek yalıtım malzemeleri, ortak alanlarda
+              kullanılan dayanıklı yüzeyler ve akıllı bina altyapılarıyla,
+              teslim ettiğimiz her konutun uzun yıllar boyunca düşük işletme
+              maliyetiyle yaşanabilir kalmasını hedefliyoruz.
+              Bayrampaşa&apos;daki merkez ofisimizden yürüttüğümüz saha
+              denetimleriyle, her aşamada kalite standartlarımızın
+              korunduğundan emin oluyoruz.
+            </p>
+            <p className="mt-4 text-neutral-600">
+              Ekibimiz; mimarlardan inşaat mühendislerine, proje
+              yöneticilerinden satış danışmanlarına kadar geniş bir uzmanlık
+              yelpazesini bir araya getirir. Bu çok disiplinli yapı sayesinde,
+              bir arsanın değerlendirilmesinden dairenin anahtar tesliminde
+              teslim edilmesine kadar geçen sürecin her adımını titizlikle
+              planlar ve uygularız; böylece hem zaman hem de bütçe
+              öngörülebilirliği sağlarız.
+            </p>
+            <p className="mt-4 text-neutral-600">
+              Mesby Yapı olarak, sadece konut üretmekle kalmayıp yaşadığımız
+              şehre de değer katmayı önemsiyoruz. Projelerimizi planlarken
+              çevredeki ulaşım ağlarını, sosyal donatı alanlarını ve yeşil
+              alan oranlarını gözeterek, sakinlerinin günlük yaşamını
+              kolaylaştıran, sürdürülebilir mahalleler oluşturmaya özen
+              gösteriyoruz. Önümüzdeki dönemde de İstanbul&apos;un farklı
+              bölgelerinde yeni konut projeleri geliştirerek, sektördeki
+              güvenilirliğimizi ve deneyimimizi daha da ileriye taşımayı
+              hedefliyoruz.
             </p>
           </div>
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-[380px]">
-            <BuildingArt art={ABOUT_IMAGE} className="h-full w-full" />{" "}
+            <BuildingArt
+              art={ABOUT_IMAGE}
+              className="h-full w-full"
+              alt="Mesby Yapı mühendislik ekibi ve inşaat sahası"
+            />{" "}
           </div>
         </div>
       </section>

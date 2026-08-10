@@ -5,9 +5,16 @@ import Gallery from "@/components/Gallery";
 import ProjectCard from "@/components/ProjectCard";
 import { FaWhatsapp } from "react-icons/fa";
 import { fetchProjectById, fetchProjects } from "@/lib/api";
-import { whatsappLink } from "@/lib/site";
+import { canonicalUrl, whatsappLink } from "@/lib/site";
+import { SITE_OG_IMAGE } from "@/lib/media";
+import { Project } from "@/lib/types";
 
 export const revalidate = 60;
+
+function projectOgImage(project: Project) {
+  const first = project.images[0];
+  return first && /^https?:\/\//.test(first) ? first : SITE_OG_IMAGE;
+}
 
 export async function generateMetadata({
   params,
@@ -17,9 +24,43 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = await fetchProjectById(slug);
   if (!project) return {};
+  const path = `/projeler/${project.slug}`;
   return {
-    title: `${project.title} | Mesby Yapı`,
+    title: `${project.title} - ${project.location}`,
     description: project.summary,
+    alternates: {
+      canonical: path,
+    },
+    openGraph: {
+      title: `${project.title} - ${project.location}`,
+      description: project.summary,
+      url: path,
+      images: [{ url: projectOgImage(project), width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      images: [projectOgImage(project)],
+    },
+  };
+}
+
+function projectJsonLd(project: Project) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ApartmentComplex",
+    name: project.title,
+    description: project.description,
+    url: canonicalUrl(`/projeler/${project.slug}`),
+    image: project.images.filter((img) => /^https?:\/\//.test(img)),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: project.location,
+      addressCountry: "TR",
+    },
+    numberOfAccommodationUnits: project.unitCount,
+    amenityFeature: project.features.map((feature) => ({
+      "@type": "LocationFeatureSpecification",
+      name: feature,
+    })),
   };
 }
 
@@ -36,6 +77,11 @@ export default async function ProjectDetailPage({
   const otherProjects = allProjects.filter((p) => p.slug !== slug).slice(0, 3);
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project)) }}
+      />
+
       <section className="border-b border-neutral-100 bg-neutral-50 pt-24 pb-8">
         <div className="container-page">
           <Link
