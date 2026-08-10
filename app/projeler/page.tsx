@@ -3,6 +3,7 @@ import Link from "next/link";
 import BuildingArt from "@/components/BuildingArt";
 import ProjectCard from "@/components/ProjectCard";
 import { fetchProjects } from "@/lib/api";
+import { SITE_BANNER } from "@/lib/media";
 
 export const revalidate = 60;
 
@@ -32,7 +33,7 @@ export default async function ProjelerPage({
     <>
       <section className="relative flex h-72 items-center overflow-hidden bg-neutral-950 pt-16">
         <BuildingArt
-          art={4}
+          art={SITE_BANNER}
           className="absolute inset-0 h-full w-full opacity-70"
         />
         <div className="absolute inset-0 bg-black/50" />

@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import BuildingArt from "./BuildingArt";
+import { HERO_MEDIA } from "@/lib/media";
+
+const SLIDE_DURATION = 8000; // ms
 
 const SLIDES = [
   {
-    art: 1,
+    art: HERO_MEDIA.slide1,
     kicker: "Mesby Yapı",
     title: "Değer Yaratan Konut Projeleri",
     text: "İstanbul'un gözde bölgelerinde, sağlam mühendislik ve zamansız mimari anlayışıyla hayat bulan projeler.",
@@ -14,25 +17,18 @@ const SLIDES = [
     ctaLabel: "Projelerimizi İnceleyin",
   },
   {
-    art: 3,
+    art: HERO_MEDIA.slide2,
     kicker: "Satılık Daireler",
     title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
     text: "Güncel satılık daire ilanlarımızı keşfedin, sahibinden.com üzerinden detaylarına anında ulaşın.",
     ctaHref: "/ilanlar",
     ctaLabel: "İlanları Görüntüleyin",
   },
-  {
-    art: 5,
-    kicker: "Güven ve Kalite",
-    title: "Sağlam Temeller, Güvenilir Gelecek",
-    text: "Depreme dayanıklı yapı teknolojisi ve titiz kalite kontrol süreçleriyle inşa ediyoruz.",
-    ctaHref: "/hakkimizda",
-    ctaLabel: "Hakkımızda",
-  },
 ];
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % SLIDES.length);
@@ -43,9 +39,24 @@ export default function HeroSlider() {
   };
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, SLIDE_DURATION);
     return () => clearInterval(timer);
   }, [next]);
+
+  // Aktif slide'a geçildiğinde videoyu baştan başlat, diğerlerini durdur.
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === index) {
+        video.currentTime = 0;
+        video.play().catch(() => {
+          // Tarayıcı otomatik oynatmayı engellerse sessizce yut, kritik değil.
+        });
+      } else {
+        video.pause();
+      }
+    });
+  }, [index]);
 
   return (
     <section className="relative h-[92vh] min-h-[560px] w-full overflow-hidden bg-neutral-950">
@@ -56,7 +67,13 @@ export default function HeroSlider() {
             i === index ? "opacity-100" : "opacity-0"
           }`}
         >
-          <BuildingArt art={slide.art} className="absolute inset-0 h-full w-full" />
+          <BuildingArt
+            ref={(el) => {
+              videoRefs.current[i] = el;
+            }}
+            art={slide.art}
+            className="absolute inset-0 h-full w-full"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
         </div>
       ))}
@@ -66,9 +83,7 @@ export default function HeroSlider() {
           <div
             key={slide.title}
             className={`max-w-2xl transition-all duration-700 ${
-              i === index
-                ? "static opacity-100"
-                : "absolute opacity-0"
+              i === index ? "static opacity-100" : "absolute opacity-0"
             }`}
           >
             <span className="inline-block rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white/90">

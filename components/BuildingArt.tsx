@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 const GRADIENTS = [
   "from-neutral-900 via-neutral-700 to-neutral-500",
   "from-neutral-950 via-neutral-800 to-neutral-600",
@@ -18,10 +20,6 @@ function seededBars(seed: number, count: number) {
   return bars;
 }
 
-// Cloudinary migration note: `art` also accepts a string key (e.g. a future
-// Cloudinary public_id) which is hashed to a stable numeric seed here. Once
-// real photos are wired up, swap this component's output for a Cloudinary
-// <Image> using that same key, without touching callers.
 function hashToSeed(key: string) {
   let hash = 0;
   for (let i = 0; i < key.length; i++) {
@@ -30,16 +28,32 @@ function hashToSeed(key: string) {
   return Math.abs(hash);
 }
 
-export default function BuildingArt({
-  art,
-  className = "",
-  alt = "",
-}: {
-  art: number | string;
-  className?: string;
-  alt?: string;
-}) {
+const BuildingArt = forwardRef<
+  HTMLVideoElement,
+  {
+    art: number | string;
+    className?: string;
+    alt?: string;
+  }
+>(function BuildingArt({ art, className = "", alt = "" }, ref) {
   if (typeof art === "string" && /^https?:\/\//.test(art)) {
+    const isVideo = /\.(mp4|webm|mov)(\?.*)?$/i.test(art);
+
+    if (isVideo) {
+      return (
+        <div className={`relative overflow-hidden ${className}`}>
+          <video
+            ref={ref}
+            src={art}
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        </div>
+      );
+    }
+
     return (
       <div className={`relative overflow-hidden ${className}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -81,4 +95,6 @@ export default function BuildingArt({
       <div className="absolute inset-0 bg-black/10" />
     </div>
   );
-}
+});
+
+export default BuildingArt;

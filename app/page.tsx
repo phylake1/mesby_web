@@ -4,18 +4,17 @@ import HeroSlider from "@/components/HeroSlider";
 import SectionHeader from "@/components/SectionHeader";
 import StatsStrip from "@/components/StatsStrip";
 import ProjectCard from "@/components/ProjectCard";
-import ListingCard from "@/components/ListingCard";
+import ListingsComingSoon from "@/components/ListingsComingSoon";
 import BuildingArt from "@/components/BuildingArt";
 import { fetchProjects } from "@/lib/api";
-import { listings } from "@/lib/listings";
 import { whatsappLink } from "@/lib/site";
+import { ABOUT_IMAGE } from "@/lib/media";
 
 export const revalidate = 60;
 
 export default async function Home() {
   const featuredProjects = (await fetchProjects()).slice(0, 3);
-  const featuredListings = listings.slice(0, 3);
-  
+
   return (
     <>
       <HeroSlider />
@@ -25,7 +24,7 @@ export default async function Home() {
       <section className="container-page py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-[420px]">
-            <BuildingArt art={2} className="h-full w-full" />
+            <BuildingArt art={ABOUT_IMAGE} className="h-full w-full" />{" "}
           </div>
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
@@ -93,8 +92,8 @@ export default async function Home() {
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeader
               kicker="Satılık Daireler"
-              title="Güncel Sahibinden İlanlarımız"
-              description="Sahibinden.com üzerinde yayınladığımız satılık daire ilanlarımızın bir kısmını burada da bulabilirsiniz."
+              title="Sahibinden İlanlarımız"
+              description="Sahibinden.com üzerindeki satılık daire ilanlarımız yakında burada da yer alacak."
             />
             <Link
               href="/ilanlar"
@@ -104,10 +103,8 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredListings.map((listing) => (
-              <ListingCard key={listing.id} listing={listing} />
-            ))}
+          <div className="mt-12">
+            <ListingsComingSoon />
           </div>
         </div>
       </section>

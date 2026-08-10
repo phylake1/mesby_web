@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BuildingArt from "@/components/BuildingArt";
 import SectionHeader from "@/components/SectionHeader";
 import StatsStrip from "@/components/StatsStrip";
+import { SITE_BANNER, ABOUT_IMAGE } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | Mesby Yapı",
@@ -31,7 +32,10 @@ const VALUES = [
 const TIMELINE = [
   { year: "2010", text: "Mesby Yapı, İstanbul'da kuruldu." },
   { year: "2015", text: "İlk konut projemizi tamamladık ve teslim ettik." },
-  { year: "2019", text: "Portföyümüzü genişleterek rezidans projelerine başladık." },
+  {
+    year: "2019",
+    text: "Portföyümüzü genişleterek rezidans projelerine başladık.",
+  },
   { year: "2023", text: "Mesby Vadi Evleri projesini başarıyla teslim ettik." },
   { year: "2026", text: "Yeni projelerimizle büyümeye devam ediyoruz." },
 ];
@@ -40,7 +44,10 @@ export default function HakkimizdaPage() {
   return (
     <>
       <section className="relative flex h-72 items-center overflow-hidden bg-neutral-950 pt-16">
-        <BuildingArt art={2} className="absolute inset-0 h-full w-full opacity-70" />
+        <BuildingArt
+          art={SITE_BANNER}
+          className="absolute inset-0 h-full w-full opacity-70"
+        />{" "}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
@@ -67,13 +74,13 @@ export default function HakkimizdaPage() {
             </p>
             <p className="mt-4 text-neutral-600">
               Her projemizde mühendislik standartlarından ödün vermeden,
-              bölgenin ihtiyaçlarına uygun, yaşam kalitesini artıran
-              tasarımlar geliştiriyoruz. Satış sürecinden teslimat sonrasına
-              kadar müşterilerimizin yanında olmaya devam ediyoruz.
+              bölgenin ihtiyaçlarına uygun, yaşam kalitesini artıran tasarımlar
+              geliştiriyoruz. Satış sürecinden teslimat sonrasına kadar
+              müşterilerimizin yanında olmaya devam ediyoruz.
             </p>
           </div>
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-[380px]">
-            <BuildingArt art={5} className="h-full w-full" />
+            <BuildingArt art={ABOUT_IMAGE} className="h-full w-full" />{" "}
           </div>
         </div>
       </section>
@@ -104,7 +111,11 @@ export default function HakkimizdaPage() {
       </section>
 
       <section className="container-page py-16 lg:py-20">
-        <SectionHeader kicker="Yol Haritamız" title="Zaman İçinde Mesby" align="center" />
+        <SectionHeader
+          kicker="Yol Haritamız"
+          title="Zaman İçinde Mesby"
+          align="center"
+        />
         <div className="mx-auto mt-12 max-w-2xl border-l border-neutral-200 pl-8">
           {TIMELINE.map((item) => (
             <div key={item.year} className="relative mb-10 last:mb-0">

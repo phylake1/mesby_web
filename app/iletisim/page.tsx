@@ -14,6 +14,7 @@ import {
   mapsEmbedUrl,
   whatsappLink,
 } from "@/lib/site";
+import { SITE_BANNER } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "İletişim | Mesby Yapı",
@@ -56,7 +57,10 @@ export default function IletisimPage() {
   return (
     <>
       <section className="relative flex h-72 items-center overflow-hidden bg-neutral-950 pt-16">
-        <BuildingArt art={3} className="absolute inset-0 h-full w-full opacity-70" />
+        <BuildingArt
+          art={SITE_BANNER}
+          className="absolute inset-0 h-full w-full opacity-70"
+        />{" "}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-page relative z-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
@@ -85,7 +89,9 @@ export default function IletisimPage() {
               key={card.title}
               href={card.href}
               target={card.href.startsWith("http") ? "_blank" : undefined}
-              rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              rel={
+                card.href.startsWith("http") ? "noopener noreferrer" : undefined
+              }
               className="group flex flex-col rounded-2xl border border-neutral-200 p-6 transition-colors hover:border-neutral-950"
             >
               <span
@@ -110,7 +116,10 @@ export default function IletisimPage() {
             </h2>
             <ul className="mt-6 space-y-6 text-sm text-neutral-600">
               <li className="flex items-start gap-4">
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-neutral-400" size={18} />
+                <FaMapMarkerAlt
+                  className="mt-1 shrink-0 text-neutral-400"
+                  size={18}
+                />
                 <div>
                   <p className="font-semibold text-neutral-950">Adres</p>
                   <p className="mt-1">{SITE.address}</p>
@@ -129,16 +138,25 @@ export default function IletisimPage() {
                 <FaPhone className="mt-1 shrink-0 text-neutral-400" size={18} />
                 <div>
                   <p className="font-semibold text-neutral-950">Telefon</p>
-                  <a href={`tel:${SITE.whatsappNumber}`} className="mt-1 block hover:text-neutral-950">
+                  <a
+                    href={`tel:${SITE.whatsappNumber}`}
+                    className="mt-1 block hover:text-neutral-950"
+                  >
                     {SITE.phoneDisplay}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <FaEnvelope className="mt-1 shrink-0 text-neutral-400" size={18} />
+                <FaEnvelope
+                  className="mt-1 shrink-0 text-neutral-400"
+                  size={18}
+                />
                 <div>
                   <p className="font-semibold text-neutral-950">E-posta</p>
-                  <a href={`mailto:${SITE.email}`} className="mt-1 block hover:text-neutral-950">
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="mt-1 block hover:text-neutral-950"
+                  >
                     {SITE.email}
                   </a>
                 </div>
@@ -146,7 +164,9 @@ export default function IletisimPage() {
             </ul>
 
             <a
-              href={whatsappLink("Merhaba, Mesby Yapı ile iletişime geçmek istiyorum.")}
+              href={whatsappLink(
+                "Merhaba, Mesby Yapı ile iletişime geçmek istiyorum.",
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A] sm:w-auto"

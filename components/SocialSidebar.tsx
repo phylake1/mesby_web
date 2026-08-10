@@ -26,9 +26,9 @@ export default function SocialSidebar() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Sahibinden"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-[11px] font-bold text-neutral-500 transition-colors hover:border-neutral-950 hover:bg-neutral-950 hover:text-white"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFDD00] text-base font-black text-neutral-950 shadow-sm transition-transform hover:scale-105"
       >
-        SB
+        S
       </a>
       <span className="mt-2 h-16 w-px bg-neutral-300" />
     </div>
