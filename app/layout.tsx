@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Mesby Yapı | İstanbul'da Güvenilir İnşaat ve Konut Projeleri",
     description:
       "Mesby Yapı, İstanbul'un farklı ilçelerinde güvenilir mühendislikle konut projeleri geliştiren bir inşaat firmasıdır.",
-    images: [{ url: SITE_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
+    images: [{ url: SITE_OG_IMAGE, width: 795, height: 795, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",

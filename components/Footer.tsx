@@ -52,9 +52,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Sahibinden"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 text-[10px] font-bold text-neutral-300 transition-colors hover:border-white hover:bg-white hover:text-neutral-950"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFDD00] text-sm font-black text-neutral-950 shadow-sm transition-transform hover:scale-105"
             >
-              SB
+              S
             </a>
           </div>
         </div>

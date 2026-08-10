@@ -35,7 +35,7 @@ export async function generateMetadata({
       title: `${project.title} - ${project.location}`,
       description: project.summary,
       url: path,
-      images: [{ url: projectOgImage(project), width: 1200, height: 630, alt: project.title }],
+      images: [{ url: projectOgImage(project), alt: project.title }],
     },
     twitter: {
       images: [projectOgImage(project)],
