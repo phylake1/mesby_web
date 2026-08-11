@@ -65,7 +65,7 @@ export default async function ProjelerPage({
       </section>
 
       <section className="container-page py-16 lg:py-20">
-        <h2 className="text-2xl font-bold text-neutral-950">
+        <h2 className="text-2xl font-bold text-neutral-950 pb-5">
           Tüm Konut Projelerimiz
         </h2>
         {pageProjects.length === 0 ? (

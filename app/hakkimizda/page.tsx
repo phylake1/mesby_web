@@ -59,14 +59,14 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-  { year: "2010", text: "Mesby Yapı, İstanbul'da kuruldu." },
-  { year: "2015", text: "İlk konut projemizi tamamladık ve teslim ettik." },
+  { year: "2016", text: "Mesby Yapı, Yalova'da kuruldu." },
+  { year: "2017", text: "İlk villa projemizi tamamladık ve teslim ettik." },
   {
     year: "2019",
-    text: "Portföyümüzü genişleterek rezidans projelerine başladık.",
+    text: "Geçen süre boyunca konut projelerinde ilerleyerek bir çok müşteri memnun ettik.",
   },
-  { year: "2023", text: "Mesby Vadi Evleri projesini başarıyla teslim ettik." },
-  { year: "2026", text: "Yeni projelerimizle büyümeye devam ediyoruz." },
+  { year: "2023", text: "Mesby Arnavutköy projelerini teslim ettik." },
+  { year: "2026", text: "Mesby Armoni evleri projemiz ile kalitemizi sunmaya devam ediyoruz." },
 ];
 
 export default function HakkimizdaPage() {
@@ -102,12 +102,9 @@ export default function HakkimizdaPage() {
               title="Zamansız Mimari, Sağlam Mühendislik"
             />
             <p className="mt-5 text-neutral-600">
-              Mesby Yapı, 2010 yılından bu yana İstanbul&apos;da konut ve
+              Mesby Yapı, 2016 yılından bu yana İstanbul ve Yalova&apos;da konut ve
               gayrimenkul geliştirme alanında faaliyet gösteren bir inşaat
-              firmasıdır. Kuruluşumuzdan bu yana; Kadıköy, Ataşehir, Üsküdar,
-              Maltepe, Çekmeköy ve Sancaktepe gibi şehrin farklı ilçelerinde,
-              müşterilerimize güvenli, konforlu ve estetik yaşam alanları
-              sunmayı ilke edindik.
+              firmasıdır.
             </p>
             <p className="mt-4 text-neutral-600">
               Her projemizde mühendislik standartlarından ödün vermeden,
@@ -125,44 +122,11 @@ export default function HakkimizdaPage() {
               talepleri hızla çözüme kavuşturarak uzun soluklu bir güven
               ilişkisi kurarız.
             </p>
-            <p className="mt-4 text-neutral-600">
-              Bugün İstanbul genelinde tamamladığımız konut projeleri ve devam
-              eden şantiyelerimizle büyümeye devam ediyoruz. Mesby Yapı
-              ailesi olarak hedefimiz, sadece bina inşa etmek değil;
-              sakinlerine değer katan, sürdürülebilir ve zamanın ötesinde
-              kalan yaşam alanları üretmektir. Bu vizyonla İstanbul&apos;un
-              inşaat sektöründe güvenilir bir marka olmayı sürdürüyoruz.
-            </p>
-            <p className="mt-4 text-neutral-600">
-              Enerji verimliliği yüksek yalıtım malzemeleri, ortak alanlarda
-              kullanılan dayanıklı yüzeyler ve akıllı bina altyapılarıyla,
-              teslim ettiğimiz her konutun uzun yıllar boyunca düşük işletme
-              maliyetiyle yaşanabilir kalmasını hedefliyoruz.
-              Bayrampaşa&apos;daki merkez ofisimizden yürüttüğümüz saha
-              denetimleriyle, her aşamada kalite standartlarımızın
-              korunduğundan emin oluyoruz.
-            </p>
-            <p className="mt-4 text-neutral-600">
-              Ekibimiz; mimarlardan inşaat mühendislerine, proje
-              yöneticilerinden satış danışmanlarına kadar geniş bir uzmanlık
-              yelpazesini bir araya getirir. Bu çok disiplinli yapı sayesinde,
-              bir arsanın değerlendirilmesinden dairenin anahtar tesliminde
-              teslim edilmesine kadar geçen sürecin her adımını titizlikle
-              planlar ve uygularız; böylece hem zaman hem de bütçe
-              öngörülebilirliği sağlarız.
-            </p>
-            <p className="mt-4 text-neutral-600">
-              Mesby Yapı olarak, sadece konut üretmekle kalmayıp yaşadığımız
-              şehre de değer katmayı önemsiyoruz. Projelerimizi planlarken
-              çevredeki ulaşım ağlarını, sosyal donatı alanlarını ve yeşil
-              alan oranlarını gözeterek, sakinlerinin günlük yaşamını
-              kolaylaştıran, sürdürülebilir mahalleler oluşturmaya özen
-              gösteriyoruz. Önümüzdeki dönemde de İstanbul&apos;un farklı
-              bölgelerinde yeni konut projeleri geliştirerek, sektördeki
-              güvenilirliğimizi ve deneyimimizi daha da ileriye taşımayı
-              hedefliyoruz.
-            </p>
+          
           </div>
+
+          
+
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-[380px]">
             <BuildingArt
               art={ABOUT_IMAGE}

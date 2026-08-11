@@ -1,8 +1,8 @@
 const STATS = [
-  { value: "15+", label: "Yıllık Deneyim" },
-  { value: "24", label: "Tamamlanan Proje" },
-  { value: "1200+", label: "Teslim Edilen Daire" },
-  { value: "%98", label: "Müşteri Memnuniyeti" },
+  { value: "10+", label: "Yıllık Deneyim" },
+  { value: "10", label: "Tamamlanan Proje" },
+  { value: "200+", label: "Teslim Edilen Daire" },
+  { value: "%100", label: "Müşteri Memnuniyeti" },
 ];
 
 export default function StatsStrip() {
