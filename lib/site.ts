@@ -12,7 +12,7 @@ export const SITE = {
   district: "Bayrampaşa",
   address: "Cevatpaşa, 100. Yıl Cd No:18, 34100 Bayrampaşa/İstanbul",
   mapsQuery: "Cevatpaşa, 100. Yıl Cd No:18, 34100 Bayrampaşa/İstanbul",
-  workingHours: "Pazartesi - Cumartesi, 09:00 - 18:00",
+  workingHours: "Pazartesi - Cumartesi, 09:00 - 17:00",
   // Cevatpaşa Mahallesi, Bayrampaşa/İstanbul için mahalle merkezli yaklaşık
   // koordinatlar (OpenStreetMap Nominatim). JSON-LD'de "geo" alanı için
   // kullanılır; bina girişinin tam konumu değildir, gerekirse Google
