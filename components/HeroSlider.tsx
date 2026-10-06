@@ -16,8 +16,9 @@ type Slide = {
   text: string;
   ctaHref: string;
   ctaLabel: string;
-  secondaryHref: string;
-  secondaryLabel: string;
+  // İkinci buton isteğe bağlı; yoksa slaytta tek buton görünür.
+  secondaryHref?: string;
+  secondaryLabel?: string;
   // Harici (alt alan adı) bağlantılar next/link yerine düz <a> ile açılır.
   external?: boolean;
   // Sayfada tek <h1> olmalı; sıra değişse de SEO başlığı Mesby slaytında kalır.
@@ -29,11 +30,9 @@ const SLIDES: Slide[] = [
     art: HERO_MEDIA.slide2,
     kicker: "Satılık Daireler",
     title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
-    text: "Güncel satılık daire ilanlarımızı keşfedin, sahibinden.com üzerinden detaylarına anında ulaşın.",
+    text: "Arnavutköy'de her katta yalnızca 6 daire. Armoni Evleri'nin kat planlarını ve 2+1 daire tiplerini inceleyin.",
     ctaHref: ARMONI_URL,
-    ctaLabel: "İlanları Görüntüleyin",
-    secondaryHref: ARMONI_URL,
-    secondaryLabel: "Satılık Daireler",
+    ctaLabel: "Projeyi İnceleyin",
     external: true,
   },
   {
@@ -152,13 +151,15 @@ export default function HeroSlider() {
               >
                 {slide.ctaLabel}
               </SlideLink>
-              <SlideLink
-                href={slide.secondaryHref}
-                external={slide.external}
-                className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                {slide.secondaryLabel}
-              </SlideLink>
+              {slide.secondaryHref && (
+                <SlideLink
+                  href={slide.secondaryHref}
+                  external={slide.external}
+                  className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                >
+                  {slide.secondaryLabel}
+                </SlideLink>
+              )}
             </div>
           </div>
           );
