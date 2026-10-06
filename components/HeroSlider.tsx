@@ -1,26 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState, useCallback } from "react";
 import BuildingArt from "./BuildingArt";
 import { HERO_MEDIA } from "@/lib/media";
 
 const SLIDE_DURATION = 8000; // ms
 
+// Her iki slaytın tek butonu da Armoni Evleri sitesine gider.
 const ARMONI_URL = "https://armoni.mesbyyapi.com";
+const CTA_LABEL = "Projeyi İnceleyin";
 
 type Slide = {
   art: string;
   kicker: string;
   title: string;
   text: string;
-  ctaHref: string;
-  ctaLabel: string;
-  // İkinci buton isteğe bağlı; yoksa slaytta tek buton görünür.
-  secondaryHref?: string;
-  secondaryLabel?: string;
-  // Harici (alt alan adı) bağlantılar next/link yerine düz <a> ile açılır.
-  external?: boolean;
   // Sayfada tek <h1> olmalı; sıra değişse de SEO başlığı Mesby slaytında kalır.
   h1?: boolean;
 };
@@ -31,44 +25,15 @@ const SLIDES: Slide[] = [
     kicker: "Satılık Daireler",
     title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
     text: "Arnavutköy'de her katta yalnızca 6 daire. Armoni Evleri'nin kat planlarını ve 2+1 daire tiplerini inceleyin.",
-    ctaHref: ARMONI_URL,
-    ctaLabel: "Projeyi İnceleyin",
-    external: true,
   },
   {
     art: HERO_MEDIA.slide1,
     kicker: "Mesby Yapı",
     title: "Değer Yaratan Konut Projeleri",
     text: "İstanbul'un gözde bölgelerinde, sağlam mühendislik ve zamansız mimari anlayışıyla hayat bulan projeler.",
-    ctaHref: "/projeler",
-    ctaLabel: "Projelerimizi İnceleyin",
-    secondaryHref: "/ilanlar",
-    secondaryLabel: "Satılık Daireler",
     h1: true,
   },
 ];
-
-function SlideLink({
-  href,
-  external,
-  className,
-  children,
-}: {
-  href: string;
-  external?: boolean;
-  className: string;
-  children: React.ReactNode;
-}) {
-  return external ? (
-    <a href={href} className={className}>
-      {children}
-    </a>
-  ) : (
-    <Link href={href} className={className}>
-      {children}
-    </Link>
-  );
-}
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
@@ -144,22 +109,12 @@ export default function HeroSlider() {
               {slide.text}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <SlideLink
-                href={slide.ctaHref}
-                external={slide.external}
+              <a
+                href={ARMONI_URL}
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:bg-neutral-200"
               >
-                {slide.ctaLabel}
-              </SlideLink>
-              {slide.secondaryHref && (
-                <SlideLink
-                  href={slide.secondaryHref}
-                  external={slide.external}
-                  className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                >
-                  {slide.secondaryLabel}
-                </SlideLink>
-              )}
+                {CTA_LABEL}
+              </a>
             </div>
           </div>
           );
