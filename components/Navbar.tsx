@@ -122,8 +122,8 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobil menü"
-        className={`fixed inset-0 z-50 flex w-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-50 flex w-full flex-col bg-white transition-transform duration-300 ease-out lg:hidden ${
+          open ? "translate-x-0 shadow-2xl" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4">
