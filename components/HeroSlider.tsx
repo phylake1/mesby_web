@@ -20,7 +20,7 @@ type Slide = {
   secondaryLabel: string;
   // Harici (alt alan adı) bağlantılar next/link yerine düz <a> ile açılır.
   external?: boolean;
-  // Sayfada tek <h1> olmalı; sıra değişse de SEO başlığı Mesby slaytunda kalır.
+  // Sayfada tek <h1> olmalı; sıra değişse de SEO başlığı Mesby slaytında kalır.
   h1?: boolean;
 };
 
