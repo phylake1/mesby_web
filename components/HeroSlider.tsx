@@ -24,7 +24,7 @@ const SLIDES: Slide[] = [
     art: HERO_MEDIA.slide2,
     kicker: "Satılık Daireler",
     title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
-    text: "Arnavutköy'de her katta yalnızca 6 daire. Armoni Evleri'nin kat planlarını ve 2+1 daire tiplerini inceleyin.",
+    text: "Armoni Evleri ile Arnavutköy'de kaliteli, güvenli ve ayrıcalıklı bir yaşamın kapısını aralayın.",
   },
   {
     art: HERO_MEDIA.slide1,
