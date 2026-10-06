@@ -7,7 +7,35 @@ import { HERO_MEDIA } from "@/lib/media";
 
 const SLIDE_DURATION = 8000; // ms
 
-const SLIDES = [
+const ARMONI_URL = "https://armoni.mesbyyapi.com";
+
+type Slide = {
+  art: string;
+  kicker: string;
+  title: string;
+  text: string;
+  ctaHref: string;
+  ctaLabel: string;
+  secondaryHref: string;
+  secondaryLabel: string;
+  // Harici (alt alan adı) bağlantılar next/link yerine düz <a> ile açılır.
+  external?: boolean;
+  // Sayfada tek <h1> olmalı; sıra değişse de SEO başlığı Mesby slaytunda kalır.
+  h1?: boolean;
+};
+
+const SLIDES: Slide[] = [
+  {
+    art: HERO_MEDIA.slide2,
+    kicker: "Satılık Daireler",
+    title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
+    text: "Güncel satılık daire ilanlarımızı keşfedin, sahibinden.com üzerinden detaylarına anında ulaşın.",
+    ctaHref: ARMONI_URL,
+    ctaLabel: "İlanları Görüntüleyin",
+    secondaryHref: ARMONI_URL,
+    secondaryLabel: "Satılık Daireler",
+    external: true,
+  },
   {
     art: HERO_MEDIA.slide1,
     kicker: "Mesby Yapı",
@@ -15,16 +43,33 @@ const SLIDES = [
     text: "İstanbul'un gözde bölgelerinde, sağlam mühendislik ve zamansız mimari anlayışıyla hayat bulan projeler.",
     ctaHref: "/projeler",
     ctaLabel: "Projelerimizi İnceleyin",
-  },
-  {
-    art: HERO_MEDIA.slide2,
-    kicker: "Satılık Daireler",
-    title: "Hayalinizdeki Eve Bir Adım Uzaktasınız",
-    text: "Güncel satılık daire ilanlarımızı keşfedin, sahibinden.com üzerinden detaylarına anında ulaşın.",
-    ctaHref: "/ilanlar",
-    ctaLabel: "İlanları Görüntüleyin",
+    secondaryHref: "/ilanlar",
+    secondaryLabel: "Satılık Daireler",
+    h1: true,
   },
 ];
+
+function SlideLink({
+  href,
+  external,
+  className,
+  children,
+}: {
+  href: string;
+  external?: boolean;
+  className: string;
+  children: React.ReactNode;
+}) {
+  return external ? (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
@@ -80,9 +125,9 @@ export default function HeroSlider() {
 
       <div className="container-page relative z-10 flex h-full flex-col items-start justify-center">
         {SLIDES.map((slide, i) => {
-          // Sayfada tek bir <h1> olması için sadece ilk slayt h1, diğerleri
+          // Sayfada tek bir <h1> olması için sadece h1 işaretli slayt h1, diğerleri
           // (görsel olarak aynı boyutta kalması gereken) h2 olarak render edilir.
-          const Heading = i === 0 ? "h1" : "h2";
+          const Heading = slide.h1 ? "h1" : "h2";
           return (
           <div
             key={slide.title}
@@ -100,18 +145,20 @@ export default function HeroSlider() {
               {slide.text}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
+              <SlideLink
                 href={slide.ctaHref}
+                external={slide.external}
                 className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:bg-neutral-200"
               >
                 {slide.ctaLabel}
-              </Link>
-              <Link
-                href="/ilanlar"
+              </SlideLink>
+              <SlideLink
+                href={slide.secondaryHref}
+                external={slide.external}
                 className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Satılık Daireler
-              </Link>
+                {slide.secondaryLabel}
+              </SlideLink>
             </div>
           </div>
           );
